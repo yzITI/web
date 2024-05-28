@@ -35,10 +35,12 @@
     return ''
   }
   function checkWin (arr) {
-    // if (Math.abs(arr[1] + arr[5] + arr[9]) === 3) return true
-    // if (Math.abs(arr[3] + arr[5] + arr[7]) === 3) return true
-    // for (let i = 1; i < 8; i += 3) if (Math.abs(arr[i] + arr[i+1] + arr[i+2]) === 3) return true
-    // for (let i = 1; i < 4; i++) if (Math.abs(arr[i] + arr[i+3] + arr[i+6]) === 3) return true
+    for (let p = 1; p < 4; p++) {
+      if (arr[1] === p && arr[5] === p && arr[9] === p) return p
+      if (arr[3] === p && arr[5] === p && arr[7] === p) return p
+      for (let i = 1; i < 8; i += 3) if (arr[i] === p && arr[i+1] === p && arr[i+2] === p) return p
+      for (let i = 1; i < 4; i++) if (arr[i] === p && arr[i+3] === p && arr[i+6] === p) return p
+    }
     return false
   }
   function checkEnd (arr) {
