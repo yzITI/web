@@ -1,5 +1,5 @@
 {
-	"name": "template-svelte",
+	"name": "web",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
@@ -12,7 +12,7 @@
 		"@sveltejs/kit": "^2.5.10",
 		"autoprefixer": "^10.4.19",
 		"postcss": "^8.4.38",
-		"svelte": "5.0.0-next.115",
+		"svelte": "^5.0.0-next.0",
 		"tailwindcss": "^3.4.3",
 		"vite": "^5.2.11"
 	},
@@ -20,6 +20,6 @@
 	"dependencies": {
 		"@mdi/js": "^7.4.47",
 		"@sveltejs/vite-plugin-svelte": "^3.1.0",
-		"ace.svelte": "^0.1.2"
+		"ace.svelte": "^0.1.3"
 	}
 }
