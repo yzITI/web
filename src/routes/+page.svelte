@@ -1,12 +1,7 @@
 <script>
-  import SmileIcon from '$lib/components/SmileIcon.svelte'
-  let cot = $state(0)
-
-  function inc () {
-    cot++
-  }
+  import ITILogo from '$lib/images/ITI.svg'
 </script>
 
-<SmileIcon></SmileIcon>
-<p>cot: {cot}</p>
-<button onclick={inc} class="p-2 rounded">Click Me</button>
+<div class="bg-black h-screen w-screen flex flex-col justify-center items-center">
+  <img src={ITILogo}>
+</div>

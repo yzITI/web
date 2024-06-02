@@ -1,8 +1,9 @@
 <script>
+  import TenBoard from '$lib/components/TenBoard.svelte'
   let { data } = $props()
   const status = ['Draw', 'Red win!', 'Blue win!', 'Yellow win!', 'Red turn', 'Blue turn', 'Yellow turn']
   let board = $state([]), last = $state(-1), l = $state(1), blocks = $state([]), winner = $state(0), avail = $state([])
-  const type = data.type || 2
+  const type = data.type || 3
 
   function getAvailable (board, last) {
     const all = [], b = last % 9
@@ -38,22 +39,6 @@
     if (!winner) l = l % type + 1
     avail = getAvailable(board, last)
   }
-
-  function cellColor (x) {
-    const i = Math.floor(x / 9)
-    if (blocks[i] !== 0) return 'opacity-0'
-    if (board[x] === 1) return 'bg-red-400'
-    if (board[x] === 2) return 'bg-blue-500'
-    if (board[x] === 3) return 'bg-yellow-500'
-    if (winner) return 'bg-gray-300'
-    return avail.includes(x) ? 'bg-white' : 'bg-gray-300'
-  }
-  function blockColor (i) {
-    if (blocks[i] === 1) return 'bg-red-400'
-    if (blocks[i] === 2) return 'bg-blue-500'
-    if (blocks[i] === 3) return 'bg-yellow-500'
-    return ''
-  }
   function restart () {
     l = 1, winner = 0, last = -1
     board = new Array(81).fill(0)
@@ -74,15 +59,7 @@
       <div class="py-2 px-6 rounded-full bg-white font-bold">{winner ? (winner < 0 ? status[0] : status[winner]) : status[l + 3]}</div>
     </div>
   {/if}
-  <div class="grid grid-cols-3">
-    {#each {length: 9} as _, i}
-      <div class={'border-2 grid grid-cols-3 rounded overflow-hidden ' + blockColor(i)}>
-        {#each {length: 9} as _, j}
-          <div class={'transition-all p-6 cursor-pointer border rounded ' + cellColor(9 * i + j)} onclick={() => drop(9 * i + j)}></div>
-        {/each}
-      </div>
-    {/each}
-  </div>
+  <TenBoard {...{ board, blocks, avail, drop, winner }}></TenBoard>
   {#if !data.simple}
     <button onclick={() => restart()} class="py-2 px-6 rounded-full bg-purple-500 text-white font-bold transition-all hover:shadow-md">Restart</button>
   {/if}
