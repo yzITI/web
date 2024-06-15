@@ -49,7 +49,7 @@
 </script>
 
 <svelte:head>
-  <title>Ten Tutorial | ITI</title>
+  <title>Ten Local | ITI</title>
 </svelte:head>
 
 <div class="h-screen w-screen bg-slate-200 flex flex-col justify-around items-center">
