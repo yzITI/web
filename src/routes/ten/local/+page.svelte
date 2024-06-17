@@ -1,6 +1,7 @@
 <script>
   import TenBoard from '$lib/components/TenBoard.svelte'
   let { data } = $props()
+  const status = ['Draw', 'Red win!', 'Blue win!', 'Yellow win!', 'Red turn', 'Blue turn', 'Yellow turn']
   let board = $state([]), last = $state(-1), l = $state(1), blocks = $state([]), winner = $state(0), avail = $state([])
   let easy = $state(data.easy || false), type = $state(data.type || 2)
 

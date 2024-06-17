@@ -21,7 +21,7 @@
   {#each {length: 9} as _, i}
     <div class={'border-2 grid grid-cols-3 rounded overflow-hidden transition-all ' + blockColor(i)}>
       {#each {length: 9} as _, j}
-        <div class={'transition-all p-6 m-px cursor-pointer rounded ' + cellColor(9 * i + j) + (easy ? ' opacity-0' : ' opacity-100')} onclick={() => drop(9 * i + j)}></div>
+        <div class={'transition-all p-5 sm:p-6 m-px cursor-pointer rounded ' + cellColor(9 * i + j) + (easy ? ' opacity-0' : ' opacity-100')} onclick={() => drop(9 * i + j)}></div>
       {/each}
     </div>
   {/each}
