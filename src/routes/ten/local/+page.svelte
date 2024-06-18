@@ -15,7 +15,7 @@
   }
 
   function check9 (board, l, s = 0) {
-    const lines = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 7], [2, 4, 6]]
+    const lines = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
     for (const li of lines) {
       if (board[s + li[0]] === l && board[s + li[1]] === l && board[s + li[2]] === l) return true
     }
