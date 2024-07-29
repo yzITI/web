@@ -1,6 +1,6 @@
 <script>
   import srpc from '$lib/utilities/srpc.js'
-  srpc('https://lsh.yzzx.tech/panda')
+  srpc('https://lsh.yzzx.tech/srpc/')
   let code = $state(''), email = $state(''), tip = $state('')
   async function submit () {
     if (!email || code.length !== 24 || tip === 'Loading...') return
